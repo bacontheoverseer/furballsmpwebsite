@@ -1,5 +1,5 @@
-// Change this if your test link used a different address or port.
-const API_URL = "http://play.furballsmp.online:25601/moss/players?stats=true";
+// HTTPS address of the stats feed: paste your Cloudflare Worker address here.
+const API_URL = "https://furball-stats.YOUR-NAME.workers.dev/";
 const FALLBACK_URL = "players.json"; // used only if the live feed can't be reached
 const REFRESH_MS = 120000;
 
