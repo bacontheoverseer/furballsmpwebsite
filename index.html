@@ -6,487 +6,101 @@
 <title>Furball SMP — A Survival Minecraft Server</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #16241C;
-    --panel: #1E3226;
-    --panel-raised: #24392C;
-    --amber: #E8A33D;
-    --amber-soft: #F0C079;
-    --rust: #C9704C;
-    --cream: #F1EAD9;
-    --sage: #9CB2A0;
-    --line: #33493A;
-    --radius-blob: 38% 62% 60% 40% / 45% 40% 60% 55%;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--cream);
-    font-family: 'Manrope', sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, .display {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 700;
-    line-height: 1.1;
-    margin: 0;
-    color: var(--cream);
-  }
-
-  p { max-width: 58ch; color: var(--sage); margin: 0.75em 0 0; }
-
-  a { color: inherit; }
-
-  :focus-visible {
-    outline: 3px solid var(--amber);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
-  .wrap {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  /* ---------- Nav ---------- */
-  header.nav {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(22, 36, 28, 0.88);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 32px;
-  }
-  .nav-mark {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 1.25rem;
-    text-decoration: none;
-  }
-  .nav-mark svg { width: 30px; height: 30px; flex-shrink: 0; }
-  .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-  .nav-links a { text-decoration: none; color: var(--sage); transition: color 0.15s; }
-  .nav-links a:hover { color: var(--amber-soft); }
-  .nav-cta {
-    background: var(--amber);
-    color: #221604;
-    border: none;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 10px 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.12s ease, background 0.12s ease;
-  }
-  .nav-cta:hover { background: var(--amber-soft); transform: translateY(-1px); }
-
-  @media (max-width: 760px) {
-    .nav-links { display: none; }
-  }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    padding: 88px 32px 60px;
-    max-width: 1120px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
-    align-items: center;
-  }
-  .hero h1 {
-    font-size: clamp(2.6rem, 5vw, 4rem);
-    letter-spacing: -0.01em;
-  }
-  .hero-sub {
-    max-width: 46ch;
-    font-size: 1.08rem;
-    margin-top: 18px;
-  }
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: var(--amber);
-    color: #221604;
-    font-weight: 700;
-    padding: 14px 24px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-size: 1rem;
-    display: inline-block;
-    transition: transform 0.12s ease, background 0.12s ease;
-  }
-  .btn-primary:hover { background: var(--amber-soft); transform: translateY(-1px); }
-
-  .ip-chip {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    padding: 10px 10px 10px 18px;
-    border-radius: 12px;
-  }
-  .ip-chip span { font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 1rem; color: var(--amber-soft); }
-  .ip-chip button {
-    background: var(--panel-raised);
-    color: var(--cream);
-    border: 1px solid var(--line);
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 600;
-    font-size: 0.85rem;
-    cursor: pointer;
-  }
-  .ip-chip button:hover { border-color: var(--amber); color: var(--amber-soft); }
-
-  .hero-art { display: flex; justify-content: center; align-items: center; }
-  .hero-art img { width: min(100%, 380px); height: auto; display: block; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .hero-art img.bob { animation: bob 5s ease-in-out infinite; transform-origin: center; }
-  }
-  @keyframes bob {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-8px) rotate(-1.2deg); }
-  }
-
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; padding-top: 64px; text-align: left; }
-    .hero-art { order: -1; }
-    .hero-art img { width: 220px; }
-  }
-
-  /* ---------- Section shell ---------- */
-  section { padding: 84px 32px; }
-  .section-head { max-width: 640px; margin-bottom: 48px; }
-  .section-head h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
-
-  #features { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-
-  /* ---------- Feature grid (asymmetric) ---------- */
-  .feature-grid {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 22px;
-  }
-  .feature {
-    background: var(--panel-raised);
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    padding: 30px;
-  }
-  .feature.lead {
-    grid-row: span 2;
-    background: linear-gradient(165deg, #2A4433, var(--panel-raised) 65%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 320px;
-  }
-  .feature h3 {
-    font-size: 1.25rem;
-    margin-bottom: 8px;
-  }
-  .feature.lead h3 { font-size: 1.55rem; }
-  .feature-icon { width: 34px; height: 34px; margin-bottom: 14px; color: var(--amber); }
-
-  @media (max-width: 760px) {
-    .feature-grid { grid-template-columns: 1fr; }
-    .feature.lead { grid-row: auto; min-height: 0; }
-  }
-
-  /* ---------- Steps ---------- */
-  .steps {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    counter-reset: step;
-  }
-  .step { position: relative; padding-top: 8px; }
-  .step::before {
-    counter-increment: step;
-    content: counter(step);
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 2.2rem;
-    color: var(--amber);
-    display: block;
-    margin-bottom: 10px;
-  }
-  .step h3 { font-size: 1.05rem; margin-bottom: 6px; }
-  .step p { font-size: 0.95rem; }
-
-  @media (max-width: 860px) {
-    .steps { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 540px) {
-    .steps { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- Rules ---------- */
-  #rules { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .rules-layout {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 48px;
-    align-items: start;
-  }
-  .rule-list { list-style: none; margin: 0; padding: 0; }
-  .rule-list li {
-    display: flex;
-    gap: 14px;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .rule-list li:first-child { padding-top: 0; }
-  .rule-list svg { width: 22px; height: 22px; flex-shrink: 0; margin-top: 2px; color: var(--rust); }
-  .rule-list strong { display: block; color: var(--cream); font-family: 'Baloo 2', sans-serif; font-weight: 600; font-size: 1.02rem; }
-  .rule-list span { color: var(--sage); font-size: 0.94rem; }
-
-  @media (max-width: 800px) {
-    .rules-layout { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- Footer ---------- */
-  footer {
-    padding: 56px 32px 40px;
-    border-top: 1px solid var(--line);
-  }
-  .footer-row {
-    max-width: 1120px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .footer-info p { font-size: 0.9rem; margin-top: 4px; }
-  .footer-info .server-meta { display: flex; gap: 18px; margin-top: 14px; flex-wrap: wrap; }
-  .footer-info .server-meta div {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-  }
-  .footer-info .server-meta div b { display: block; color: var(--amber-soft); font-family: 'Baloo 2', sans-serif; font-size: 0.95rem; }
-  .footer-copy { font-size: 0.82rem; color: var(--sage); margin-top: 40px; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="nav">
-  <div class="nav-row">
-    <a class="nav-mark" href="#top">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="20" cy="22" r="13" fill="#E8A33D"/>
-        <circle cx="10" cy="10" r="5" fill="#E8A33D"/>
-        <circle cx="30" cy="10" r="5" fill="#E8A33D"/>
-        <circle cx="15.5" cy="21" r="2" fill="#16241C"/>
-        <circle cx="24.5" cy="21" r="2" fill="#16241C"/>
-        <circle cx="20" cy="26" r="1.6" fill="#C9704C"/>
-      </svg>
-      Furball SMP
-    </a>
-    <ul class="nav-links">
-      <li><a href="#features">The Core</a></li>
-      <li><a href="community.html">Community</a></li>
-      <li><a href="#rules">Rules</a></li>
-    </ul>
-    <button class="nav-cta" onclick="copyIP(this)">Copy Server IP</button>
+  <div class="nav-in">
+    <a class="logo" href="#top"><img src="furball.png" alt="">Furball SMP</a>
+    <nav>
+      <a href="#features">The Core</a>
+      <a href="community.html">Community</a>
+      <a href="#rules">Rules</a>
+      <a href="#connect">Bedrock</a>
+    </nav>
+    <button class="mc-btn sm" data-copy>Copy Server IP</button>
   </div>
 </header>
 
 <main id="top">
 
-  <section class="hero">
-    <div>
+<section class="hero">
+  <div class="clouds"><i></i><i></i><i></i></div>
+  <div class="hero-in">
+    <div class="hero-text">
+      <span class="status" id="status" hidden></span>
       <h1>Survival, but everyone's way more chill.</h1>
-      <p class="hero-sub">Furball SMP is a small survival community for the type of people that hoard their sheep, call town meetings, and create megabuilds.
-      There's also Auction House, GriefPrevention, and Anticheat. Bedrock's supported too, more on that at the bottom of the page.</p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#join">How to join</a>
-        <div class="ip-chip">
-          <span id="ip-text">play.furballsmp.online</span>
-          <button onclick="copyIP(this)">copy :D</button>
-        </div>
+      <p>Furball SMP is a small survival community for the type of people that hoard their sheep, call town meetings, and create megabuilds. There's also Auction House, GriefPrevention, and Anticheat. Bedrock's supported too, more on that at the bottom of the page.</p>
+      <div class="hero-cta">
+        <a class="mc-btn" href="#join">How to join</a>
+        <div class="ip-bar"><span>play.furballsmp.online</span><button data-copy>copy :D</button></div>
       </div>
     </div>
-    <div class="hero-art">
-      <img src="furball.png" alt="Furball SMP mascot" class="bob">
-    </div>
-  </section>
+    <div class="hero-art"><img src="furball.png" alt="Furball SMP mascot"></div>
+  </div>
+  <div class="ground"></div>
+</section>
 
-  <section id="features">
-    <div class="section-head">
-      <h2>Under the Hood</h2>
-      <p>A world built for chill, but with just a little structuring to keep things organized.</p>
+<section id="features" class="sec">
+  <div class="wrap">
+    <div class="head"><h2>Under the Hood</h2><p>A world built for chill, but with just a little structuring to keep things organized.</p></div>
+    <div class="grid">
+      <article class="block"><div class="ico">🏡</div><h3>One world, no resets</h3><p>Same map since launch. Builds, farms, and rail lines stick around — your base from three months ago is still standing, probably slightly overgrown.</p></article>
+      <article class="block"><div class="ico">⛏️</div><h3>Raw survival, no claims</h3><p>Vanilla rules — no land protection, no grief-proof boxes. Everything you build is exposed to the world, the way survival is meant to be.</p></article>
+      <article class="block gold"><div class="ico">📧</div><h3>Email Support</h3>
+        <ul><li>email griefed@furballsmp.online for grief reports...</li><li>email support@furballsmp.online for all other requests!</li></ul></article>
+      <article class="block"><div class="ico">🔍</div><h3>Monitored</h3><p>Every block. If something of yours actually gets griefed, admins can find it and roll it back — no claims needed to feel safe.</p></article>
+      <article class="block"><div class="ico">🎉</div><h3>Seasonal events</h3><p>Small community builds, boat races, and the occasional boss night. Nothing mandatory. Also, host your own!</p></article>
+      <article class="block"><div class="ico">🛡️</div><h3>GriefPrevention tools</h3><p>No griefing, guys! Google how to use GriefPrevention in a server as a player.</p></article>
     </div>
-    <div class="feature-grid">
-      <div class="feature lead">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-8h6v8"/></svg>
-        <h3>One world, no resets</h3>
-        <p>Same map since launch. Builds, farms, and rail lines stick around — your base from three
-          months ago is still standing, probably slightly overgrown.</p>
-      </div>
-      <div class="feature">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
-        <h3>Raw survival, no claims</h3>
-        <p>Vanilla rules — no land protection, no grief-proof boxes. Everything you build is exposed
-          to the world, the way survival is meant to be.</p>
-      </div>
-      <div class="feature">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
-        <h3>Email Support</h3>
-        <ul>
-          <li>email griefed@furballsmp.online for grief reports...</li>
-          <li>email support@furballsmp.online for all other requests!</li>
-        </ul>
-      </div>
-      <div class="feature">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="M7 15l4-6 3 4 4-8"/></svg>
-        <h3>Monitored</h3>
-        <p>Every block. If something of yours actually gets griefed, admins can find it and
-          roll it back — no claims needed to feel safe.</p>
-      </div>
-      <div class="feature">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <h3>Seasonal events</h3>
-        <p>Small community builds, boat races, and the occasional boss night. Nothing mandatory. Also, host your own!</p>
-      </div>
-      <div class="feature">
-        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <h3>GriefPrevention tools</h3>
-        <p>No griefing, guys! Google how to use GriefPrevention in a server as a player.</p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section id="join">
-    <div class="section-head">
-      <h2>Getting in</h2>
-      <p>We don't believe in applications or requirements. Anyone is free to join.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <h3>Copy the IP</h3>
-        <p>Hit the copy button and paste it in your game to play.</p>
-      </div>
-      <div class="step">
-        <h3>Connect</h3>
-        <p>Load in and poof, you're in the game.</p>
-      </div>
-      <div class="step">
-        <h3>Find somewhere to settle</h3>
-        <p>No set spawn hub to build near — go find your own patch of world.</p>
-      </div>
-    </div>
-    <p style="margin-top:36px; max-width:60ch;">Infrastructure caps out at <strong style="color:var(--cream);">50 players online at once</strong>.
-      If the server's full when you try to connect, just try again in a bit.</p>
-  </section>
+<section id="join" class="sec dirt">
+  <div class="wrap">
+    <div class="head"><h2>Getting in</h2><p>We don't believe in applications or requirements. Anyone is free to join.</p></div>
+    <ol class="steps">
+      <li><span>1</span><h3>Copy the IP</h3><p>Hit the copy button and paste it in your game to play.</p></li>
+      <li><span>2</span><h3>Connect</h3><p>Load in and poof, you're in the game.</p></li>
+      <li><span>3</span><h3>Find somewhere to settle</h3><p>No set spawn hub to build near — go find your own patch of world.</p></li>
+    </ol>
+    <p class="cap">Infrastructure caps out at <strong>50 players online at once</strong>. If the server's full when you try to connect, just try again in a bit.</p>
+  </div>
+</section>
 
-  <section id="rules">
-    <div class="rules-layout">
-      <div class="section-head" style="margin-bottom:0;">
-        <h2>House rules</h2>
-        <p>Short list, kept short on purpose.</p>
-      </div>
-      <ul class="rule-list">
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14" r="6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="4" r="1.8"/><circle cx="15" cy="4" r="1.8"/></svg>
-          <span><strong>No griefing or stealing</strong>Admins DO check player reports.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14" r="6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="4" r="1.8"/><circle cx="15" cy="4" r="1.8"/></svg>
-          <span><strong>No flood machines</strong>Guys, this isn't Donut SMP - no Team Flood, Drain, or Compramos.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14" r="6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="4" r="1.8"/><circle cx="15" cy="4" r="1.8"/></svg>
-          <span><strong>No lag machines</strong>Farms are welcome; farms built to break the server aren't.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14" r="6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="4" r="1.8"/><circle cx="15" cy="4" r="1.8"/></svg>
-          <span><strong>Be decent in chat</strong>Disagreements happen, just don't take it too far.</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="14" r="6"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="9" cy="4" r="1.8"/><circle cx="15" cy="4" r="1.8"/></svg>
-          <span><strong>ZERO Tolerance for Racism or Discrimination</strong>First time? No warning, perma-ban.</span>
-        </li>
-      </ul>
-    </div>
-  </section>
+<section id="rules" class="sec">
+  <div class="wrap rules">
+    <div class="head"><h2>House rules</h2><p>Short list, kept short on purpose.</p></div>
+    <ul class="rule-list">
+      <li><b>No griefing or stealing</b><span>Admins DO check player reports.</span></li>
+      <li><b>No flood machines</b><span>Guys, this isn't Donut SMP - no Team Flood, Drain, or Compramos.</span></li>
+      <li><b>No lag machines</b><span>Farms are welcome; farms built to break the server aren't.</span></li>
+      <li><b>Be decent in chat</b><span>Disagreements happen, just don't take it too far.</span></li>
+      <li class="ban"><b>ZERO Tolerance for Racism or Discrimination</b><span>First time? No warning, perma-ban.</span></li>
+    </ul>
+  </div>
+</section>
 
 </main>
 
-<footer>
-  <div class="footer-row">
-    <div class="footer-info">
-      <h3 style="font-size:1.15rem;">Ready when you are.</h3>
-      <p>Open to anyone — just connect and play.</p>
-      <div class="server-meta">
-        <div><b>play.furballsmp.online</b>Java IP</div>
-        <div><b>IP: play.furballsmp.online, Port: 25617</b>Bedrock IP</div>
-        <div><b>1.22</b>Version</div>
-        <div><b>50 players</b>Max capacity</div>
-      </div>
+<footer id="connect">
+  <div class="wrap">
+    <div class="foot-top">
+      <div><h2>Ready when you are.</h2><p>Open to anyone — just connect and play.</p></div>
+      <a class="mc-btn" href="#join">How to join</a>
     </div>
-    <a class="btn-primary" href="#join">How to join</a>
+    <div class="meta">
+      <div><small>Java IP</small><b>play.furballsmp.online</b></div>
+      <div><small>Bedrock IP</small><b>IP: play.furballsmp.online, Port: 25617</b></div>
+      <div><small>Version</small><b>1.22</b></div>
+      <div><small>Max capacity</small><b>50 players</b></div>
+    </div>
+    <p class="copy">Furball SMP — a small survival world, run for fun.</p>
   </div>
-  <p class="footer-copy">Furball SMP — a small survival world, run for fun.</p>
 </footer>
 
-<script>
-function copyIP(btn) {
-  const ip = "play.furballsmp.online";
-  navigator.clipboard.writeText(ip).catch(() => {});
-  const original = btn.textContent;
-  btn.textContent = "Copied!";
-  setTimeout(() => { btn.textContent = original; }, 1500);
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
