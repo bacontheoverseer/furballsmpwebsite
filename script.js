@@ -11,7 +11,7 @@ document.querySelectorAll("[data-copy]").forEach(btn => {
 
 // Optional live player count. Hides itself if the lookup fails.
 const status = document.getElementById("status");
-fetch(`https://api.mcsrvstat.us/3/${IP}`)
+if (status) fetch(`https://api.mcsrvstat.us/3/${IP}`)
   .then(r => r.json())
   .then(d => {
     status.hidden = false;
