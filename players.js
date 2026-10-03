@@ -39,6 +39,58 @@ function mergeByName(list) {
   return [...map.values()];
 }
 
+// ---- Skins ----
+// Bedrock (Floodgate) players have UUIDs like 00000000-0000-0000-XXXX-XXXXXXXXXXXX; the last 16 hex digits are their Xbox ID.
+const isBedrock = p => p.name.startsWith(".") || p.uuid.startsWith("00000000-0000-0000-");
+const xuidOf = uuid => BigInt("0x" + uuid.replace(/-/g, "").slice(16)).toString();
+const javaSkinUrl = name => `https://mc-heads.net/body/${encodeURIComponent(name)}/right`;
+const bedrockSkins = new Map(); // xuid -> { img, steve } or null
+
+async function getBedrockSkin(xuid) {
+  if (bedrockSkins.has(xuid)) return bedrockSkins.get(xuid);
+  let result = null;
+  try {
+    const meta = await fetch("https://api.geysermc.org/v2/skin/" + xuid).then(r => r.json());
+    if (meta.texture_id) {
+      const img = await new Promise((ok, no) => {
+        const i = new Image(); i.onload = () => ok(i); i.onerror = no;
+        i.src = "https://textures.minecraft.net/texture/" + meta.texture_id;
+      });
+      result = { img, steve: meta.is_steve !== false };
+    }
+  } catch {}
+  bedrockSkins.set(xuid, result);
+  return result;
+}
+
+// Draw a front-facing body from a raw 64x64 (or old 64x32) skin texture.
+function drawBody({ img, steve }) {
+  const c = document.createElement("canvas"); c.width = 16; c.height = 32;
+  const g = c.getContext("2d"); g.imageSmoothingEnabled = false;
+  const modern = img.height >= 64, aw = steve ? 4 : 3, ax = steve ? 0 : 1;
+  const part = (sx, sy, sw, sh, dx, dy, flip) => {
+    g.save();
+    if (flip) { g.translate(dx + sw, dy); g.scale(-1, 1); g.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh); }
+    else g.drawImage(img, sx, sy, sw, sh, dx, dy, sw, sh);
+    g.restore();
+  };
+  part(4, 20, 4, 12, 4, 20);                                   // right leg
+  modern ? part(20, 52, 4, 12, 8, 20) : part(4, 20, 4, 12, 8, 20, true); // left leg
+  part(20, 20, 8, 12, 4, 8);                                   // body
+  part(44, 20, aw, 12, ax, 8);                                 // right arm
+  modern ? part(36, 52, aw, 12, 12, 8) : part(44, 20, aw, 12, 12, 8, true); // left arm
+  part(8, 8, 8, 8, 4, 0); part(40, 8, 8, 8, 4, 0);            // head + hat layer
+  return c;
+}
+
+async function hydrateBedrock() {
+  for (const box of document.querySelectorAll(".c-art[data-xuid]")) {
+    const skin = await getBedrockSkin(box.dataset.xuid);
+    const old = box.querySelector("img");
+    if (skin && old) old.replaceWith(drawBody(skin));
+  }
+}
+
 if (typeof document !== "undefined") {
   const $ = id => document.getElementById(id);
   let players = [], live = false;
@@ -59,13 +111,14 @@ if (typeof document !== "undefined") {
 
     $("empty").hidden = list.length > 0;
     $("cards").innerHTML = list.map(p => {
-      const r = rarityOf(p.hours), bedrock = p.name.startsWith(".");
+      const r = rarityOf(p.hours), bedrock = isBedrock(p);
+      p.xuid = bedrock ? xuidOf(p.uuid) : null;
       const when = p.online ? "Online now" : p.lastSeen ? "Last seen " + ago(p.lastSeen) : "";
       return `<article class="card ${r}${p.online ? " on" : ""}">
         <div class="c-top"><span class="c-name">${esc(bedrock ? p.name.slice(1) : p.name)}</span><i class="c-dot" title="${p.online ? "Online now" : "Offline"}"></i></div>
-        <div class="c-art">
+        <div class="c-art"${p.xuid ? ` data-xuid="${p.xuid}"` : ""}>
           <span class="c-rarity">${r}</span><span class="c-rank">Rank ${p.rank}</span>
-          <img src="https://mc-heads.net/body/${esc(p.uuid)}/right" alt="${esc(p.name)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furball.png'">
+          <img src="${p.xuid ? "furball.png" : javaSkinUrl(bedrock ? p.name.slice(1) : p.name)}" alt="${esc(p.name)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furball.png'">
         </div>
         <ul class="c-stats">
           <li><span>Playtime</span>${fmtH(p.hours)} h</li>
@@ -77,6 +130,7 @@ if (typeof document !== "undefined") {
         <div class="c-foot">${bedrock ? "Bedrock · " : ""}${when}</div>
       </article>`;
     }).join("");
+    hydrateBedrock();
   }
 
   function tiles() {
@@ -123,5 +177,5 @@ if (typeof document !== "undefined") {
   ["search", "sort", "onlineOnly"].forEach(id => $(id).addEventListener("input", render));
   tilt(); load(); setInterval(load, REFRESH_MS);
 } else {
-  module.exports = { normalize, mergeByName };
+  module.exports = { normalize, mergeByName, xuidOf };
 }
