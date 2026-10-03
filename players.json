@@ -1,0 +1,9 @@
+{
+  "_note": "SAMPLE DATA. This gets overwritten by export-stats.js.",
+  "updated": "2026-10-03T12:00:00Z",
+  "players": [
+    {"uuid":"069a79f4-44e9-4726-a5be-fca90e38aaf5","name":"Notch","hours":312,"mined":48210,"mobKills":2210,"deaths":41,"km":903,"jumps":20111,"lastSeen":"2026-10-02T18:00:00Z"},
+    {"uuid":"00000000-0000-0000-0000-000000000001","name":"SampleSheepHoarder","hours":87,"mined":15420,"mobKills":640,"deaths":12,"km":211,"jumps":8000,"lastSeen":"2026-09-30T18:00:00Z"},
+    {"uuid":"00000000-0000-0000-0000-000000000002","name":"SampleNewbie","hours":3,"mined":410,"mobKills":22,"deaths":5,"km":9,"jumps":300,"lastSeen":"2026-10-03T09:00:00Z"}
+  ]
+}
