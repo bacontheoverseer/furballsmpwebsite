@@ -107,3 +107,9 @@ footer{background:var(--panel);border-top:4px solid var(--edge);padding:72px 0 4
 .meta small{display:block;color:var(--mute);font-weight:800;font-size:.78rem}
 .meta b{color:var(--gold-l);font-weight:800}
 .copy{margin-top:44px;font-size:.85rem}
+
+/* nav buttons */
+.nav-btns{display:flex;gap:10px}
+.mc-btn.sm.alt{background:#7b7b8c;color:#fff;text-shadow:2px 2px 0 #4a4a58;box-shadow:inset -4px -4px 0 #55556a,inset 4px 4px 0 #a7a7ba}
+.mc-btn.sm.alt:hover{background:#8e8ea1}
+@media(max-width:520px){.logo{font-size:0}.logo img{width:30px;height:30px}}
