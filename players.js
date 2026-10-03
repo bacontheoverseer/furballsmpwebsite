@@ -1,5 +1,5 @@
 // HTTPS address of the stats feed: paste your Cloudflare Worker address here.
-const API_URL = "https://furball-stats.YOUR-NAME.workers.dev/";
+const API_URL = "https://furball-stats.ccoderschool.workers.dev/";
 const FALLBACK_URL = "players.json"; // used only if the live feed can't be reached
 const REFRESH_MS = 120000;
 
