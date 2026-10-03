@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Players — Furball SMP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stats.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="logo" href="index.html"><img src="furball.png" alt="">Furball SMP</a>
+    <nav>
+      <a href="index.html#features">The Core</a>
+      <a href="community.html">Community</a>
+      <a href="players.html" aria-current="page">Players</a>
+      <a href="index.html#rules">Rules</a>
+    </nav>
+    <div class="nav-btns">
+      <a class="mc-btn sm alt" href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki</a>
+      <button class="mc-btn sm" data-copy>Copy Server IP</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="p-hero">
+    <div class="wrap">
+      <h1>Players</h1>
+      <p>Everyone who's ever joined, with a trading card each. Play more to rank up.</p>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="p-body">
+    <div class="wrap">
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search players..." aria-label="Search players">
+        <select id="sort" aria-label="Sort players">
+          <option value="hours">Most playtime</option>
+          <option value="mined">Most blocks mined</option>
+          <option value="mobKills">Most mob kills</option>
+          <option value="km">Furthest walked</option>
+          <option value="lastSeen">Recently seen</option>
+          <option value="name">Name (A–Z)</option>
+        </select>
+        <label class="chk"><input type="checkbox" id="onlineOnly"> Online now</label>
+      </div>
+      <p class="empty" id="empty" hidden>No players found.</p>
+      <div class="cards" id="cards"></div>
+      <p class="updated" id="updated"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="copy" style="margin:0">Furball SMP — a small survival world, run for fun.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="players.js"></script>
+</body>
+</html>
