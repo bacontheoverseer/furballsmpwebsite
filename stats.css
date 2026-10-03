@@ -36,3 +36,6 @@
 .c-stats li{display:flex;justify-content:space-between;padding:3px 0;border-bottom:2px dotted #3a3a45}
 .c-stats li span{color:var(--mute)}
 .c-foot{font-size:.74rem;color:var(--mute);font-weight:800;text-align:center}
+
+/* Bedrock skins drawn from the raw texture */
+.c-art canvas{height:92%;width:auto;image-rendering:pixelated;filter:drop-shadow(0 6px 0 rgba(0,0,0,.3))}
