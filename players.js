@@ -112,12 +112,13 @@ if (typeof document !== "undefined") {
     $("cards").innerHTML = list.map(p => {
       const r = rarityOf(p.hours), bedrock = isBedrock(p);
       p.xuid = bedrock ? xuidOf(p.uuid) : null;
+      const shown = p.name.startsWith(".") ? p.name.slice(1) : p.name;
       const when = p.online ? "Online now" : p.lastSeen ? "Last seen " + ago(p.lastSeen) : "";
       return `<article class="card ${r}${p.online ? " on" : ""}">
-        <div class="c-top"><span class="c-name">${esc(bedrock ? p.name.slice(1) : p.name)}</span><i class="c-dot" title="${p.online ? "Online now" : "Offline"}"></i></div>
+        <div class="c-top"><span class="c-name">${esc(shown)}</span><i class="c-dot" title="${p.online ? "Online now" : "Offline"}"></i></div>
         <div class="c-art"${p.xuid ? ` data-xuid="${p.xuid}"` : ""}>
           <span class="c-rarity">${r}</span><span class="c-rank">Rank ${p.rank}</span>
-          <img src="${p.xuid ? "furball.png" : javaSkinUrl(bedrock ? p.name.slice(1) : p.name)}" alt="${esc(p.name)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furball.png'">
+          <img src="${p.xuid ? "furball.png" : javaSkinUrl(shown)}" alt="${esc(shown)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furball.png'">
         </div>
         <ul class="c-stats">
           <li><span>Playtime</span>${fmtH(p.hours)} h</li>
