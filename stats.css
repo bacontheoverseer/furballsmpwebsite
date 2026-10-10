@@ -39,3 +39,4 @@
 
 /* Bedrock skins drawn from the raw texture */
 .c-art canvas{height:92%;width:auto;image-rendering:pixelated;filter:drop-shadow(0 6px 0 rgba(0,0,0,.3))}
+.c-art img[src="furball.png"]{height:auto;width:58%;margin-bottom:14px}
