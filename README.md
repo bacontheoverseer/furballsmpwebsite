@@ -128,4 +128,5 @@ Any static host works (GitHub Pages, Cloudflare Pages, Netlify, or a normal web 
 
 ## License
 
-Add a license here. If you don't have a preference, the [MIT License](https://choosealicense.com/licenses/mit/) is a common choice for a site like this. Note that the Furball SMP name, logo and mascot art are yours, so you may want to state that they aren't covered by the license.
+Protected by the MIT license. Furball SMP artwork and imagery is property of us, and goes under the Creative Commons Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)
+license.
