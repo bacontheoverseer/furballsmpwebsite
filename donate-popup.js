@@ -2,7 +2,7 @@
 (function () {
   const ENABLED = true;          // set to false to turn the popup off
   const DELAY_MS = 4000;         // how long after the page loads it appears
-  const HIDE_FOR_DAYS = 3;       // how long "Maybe later" hides it (set 0 to show on every visit, handy for testing)
+  const HIDE_FOR_DAYS = 0;       // how long "Maybe later" hides it (set 0 to show on every visit, handy for testing)
   const DONATE_URL = "https://ko-fi.com/furballsmp";
   const KEY = "furball-donate-popup-hidden-until";
 
