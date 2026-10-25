@@ -133,4 +133,4 @@ Any static host works (GitHub Pages, Cloudflare Pages, Netlify, or a normal web 
   (for example `furball.png` and `furballlogo.png`) are property of Furball SMP and
   are licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
   They are **not** covered by the MIT license. If you fork this project, please
-  replace them with your own.
+  replace them with your own. Please see [Artwork License](ARTWORK-LICENSE.md) for more details on the artwork license.
