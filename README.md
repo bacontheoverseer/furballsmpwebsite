@@ -128,5 +128,9 @@ Any static host works (GitHub Pages, Cloudflare Pages, Netlify, or a normal web 
 
 ## License
 
-Protected by the MIT license. Furball SMP artwork and imagery is property of us, and goes under the Creative Commons Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)
-license.
+- **Code:** MIT License. See [LICENSE](LICENSE). Copyright (c) 2026 Furball SMP.
+- **Artwork and imagery:** The Furball SMP name, logo, mascot and other artwork
+  (for example `furball.png` and `furballlogo.png`) are property of Furball SMP and
+  are licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+  They are **not** covered by the MIT license. If you fork this project, please
+  replace them with your own.
