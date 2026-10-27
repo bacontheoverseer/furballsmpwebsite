@@ -1,271 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Furball SMP — A Survival Minecraft Server</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14172b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<title>Furball SMP | Java &amp; Bedrock Minecraft Server</title>
+<meta name="description" content="Furball SMP is a small survival Minecraft community for Java and Bedrock players.">
 </head>
 <body>
-<header class="nav">
-  <div class="nav-in">
-    <a class="logo" href="#top"><img src="furballlogo.png" alt="">Furball SMP</a>
-    <nav>
-      <a href="#features">The Core</a>
-      <a href="community.html">Community</a>
-      <a href="players.html">Players</a>
-      <a href="#rules">Rules</a>
-      <a href="#connect">Bedrock</a>
-    </nav>
-    <div class="nav-btns">
-      <a class="mc-btn sm alt" href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki</a>
-      <button class="mc-btn sm" data-copy>Copy Server IP</button>
-    </div>
+
+<header class="sky">
+  <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i>
+  <div class="wrap strip">
+    <button class="ipbtn" data-copy="play.furballsmp.online" aria-label="Copy the server address">
+      <span class="pawbox" aria-hidden="true"><img src="furballlogo.png" alt=""></span>
+      <span><b>play.furballsmp.online</b><small id="onlineCount">Click to copy the address</small></span>
+    </button>
+    <a class="discord" href="community.html">
+      <span><b>Community</b><small>Join the conversation</small></span>
+      <span class="dbox" aria-hidden="true">💬</span>
+    </a>
   </div>
+  <img class="mascot" src="furball.png" alt="Furball SMP mascot">
+  <div class="wrap logo">
+    <h1>Furball<span>SMP</span></h1>
+    <p>Survival, but everyone's way more chill.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 L0,60 C360,-10 1080,-10 1440,60 L1440,110 Z" fill="#14172b"/></svg>
 </header>
 
-<main id="top">
+<div class="navwrap">
+  <nav class="main" aria-label="Main">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="players.html">Players</a>
+    <a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a>
+    <a href="community.html">Community</a>
+    <a href="#rules">Rules</a>
+    <a href="/tip">Tip jar</a>
+    <a class="cta" href="#join">How to join</a>
+  </nav>
+</div>
 
-<section class="hero">
-  <div class="clouds"><i></i><i></i><i></i></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="web" aria-hidden="true"></div><div class="web r" aria-hidden="true"></div>
-  <i class="bat b1" aria-hidden="true"></i><i class="bat b2" aria-hidden="true"></i><i class="bat b3" aria-hidden="true"></i>
-  <div class="hero-in">
-    <div class="hero-text">
-      <span class="status" id="status" hidden></span>
-      <h1>Survival, but everyone's way more chill.</h1>
-      <p>Furball SMP is a small survival community for the type of people that hoard their sheep, call town meetings, and create megabuilds. There's also Auction House, GriefPrevention, and Anticheat. Bedrock's supported too, more on that at the bottom of the page.</p>
-      <div class="hero-cta">
-        <a class="mc-btn" href="#join">How to join</a>
-        <div class="ip-bar"><span>play.furballsmp.online</span><button data-copy>copy :D</button></div>
-      </div>
+<main class="wrap">
+
+  <section aria-label="Server status">
+    <div class="grid g3">
+      <div class="tile" id="statusTile"><div class="k">Server status</div><div class="v"><span class="dot"></span><span id="statusText">Checking...</span></div><div class="sub" id="statusSub">Looking for the server</div></div>
+      <div class="tile"><div class="k">Editions</div><div class="v">Java + Bedrock</div><div class="sub">Everyone plays in the same world</div></div>
+      <a class="tile" href="players.html"><div class="k">Player stats</div><div class="v">See the players</div><div class="sub">Live trading cards for everyone</div></a>
     </div>
-    <div class="hero-art"><img src="furball.png" alt="Furball SMP mascot"><span class="ghost" aria-hidden="true">👻</span></div>
-  </div>
-  <div class="fog" aria-hidden="true"></div>
-  <div class="ground"></div>
-  <div class="pumpkins" aria-hidden="true"><span style="left:5%">🎃</span><span style="left:27%;font-size:2rem">🎃</span><span style="left:52%">🪦</span><span style="left:74%;font-size:2.4rem">🎃</span><span style="left:92%;font-size:2rem">🕯️</span></div>
-</section>
+  </section>
 
-<section id="halloween" class="event">
-  <div class="wrap">
-    <div class="head">
-      <span class="tag">Limited time</span>
-      <h2>Halloween event</h2>
-      <p>The server is running the Halloween plugin by Softici. Build altars to summon bosses, light a grave to fight three waves of undead, collect Halloween Candy, and trade it with a Pumpkin Trader. It's only here for a limited time, so tap a section below to see how it works.</p>
+  <section id="about">
+    <h2>Welcome to Furball SMP</h2>
+    <p class="lede">Furball SMP is a small survival community for the type of people that hoard their sheep, call town meetings, and create megabuilds. There's also Auction House, GriefPrevention, and Anticheat. Bedrock's supported too, more on that in the join section below.</p>
+  </section>
+
+  <section id="join">
+    <h2>How to join</h2>
+    <p class="lede">We don't believe in applications or requirements. Anyone is free to join.</p>
+    <div class="grid g2">
+      <div class="tile"><h3>Java Edition</h3>
+        <div class="row"><span>Address</span><code>play.furballsmp.online</code></div>
+        <button class="btn" data-copy="play.furballsmp.online">Copy address</button></div>
+      <div class="tile"><h3>Bedrock Edition</h3>
+        <div class="row"><span>Address</span><code>play.furballsmp.online</code></div>
+        <div class="row"><span>Port</span><code>25617</code></div>
+        <button class="btn" data-copy="play.furballsmp.online">Copy address</button></div>
     </div>
+    <div class="tile" style="margin-top:16px"><ol class="steps grid g3">
+      <li><div><h3>Copy the IP</h3><p>Hit the copy button and paste it in your game to play.</p></div></li>
+      <li><div><h3>Connect</h3><p>Load in and poof, you're in the game.</p></div></li>
+      <li><div><h3>Find somewhere to settle</h3><p>No set spawn hub to build near. Go find your own patch of world.</p></div></li>
+    </ol></div>
+    <p class="note">Infrastructure caps out at <strong>50 players online at once</strong>. If the server's full when you try to connect, just try again in a bit.</p>
+  </section>
 
-    <ol class="steps">
-      <li><span>1</span><h3>Wear a pumpkin</h3><p>A carved pumpkin on your head gives you Speed II and Night Vision, and cake rewards the longer you keep it on.</p></li>
-      <li><span>2</span><h3>Summon and fight</h3><p>Build a boss altar or a grave, light it with flint and steel, and fight for loot.</p></li>
-      <li><span>3</span><h3>Trade your candy</h3><p>Turn a villager into a Pumpkin Trader and swap candy for golden apples and diamonds.</p></li>
-    </ol>
-
-    <details class="fold" open>
-      <summary>🧟 Boss fights</summary>
-      <div class="body">
-        <p>Bosses don't just appear. You summon them by building a small altar and lighting it. Each player has a 10 minute cooldown between bosses. Both bosses have 100 health, show a health bar to everyone within 40 blocks, and put a title on screen when they spawn.</p>
-        <div class="two">
-          <div class="boss">
-            <h4>Pumpkin Zombie Boss</h4>
-            <div class="altar"><span>Any fence</span><span>+ Carved pumpkin on top</span><span>🔥 Flint and steel on the pumpkin</span></div>
-            <ul>
-              <li>Diamond armour, a mace and a pumpkin head</li>
-              <li>Hits harder and runs 30% faster than normal</li>
-              <li>Gives 10 levels of XP</li>
-              <li><b>Loot:</b> 15 to 20 carved pumpkins, 3 to 5 cakes, 1 to 5 phantom membranes, 10 to 32 glowstone dust, a 30% chance of a zombie head, and 5 to 10 candy</li>
-            </ul>
-          </div>
-          <div class="boss">
-            <h4>Halloween Skeleton Boss</h4>
-            <div class="altar"><span>Lapis lazuli block</span><span>+ Carved pumpkin on top</span><span>🔥 Flint and steel on the pumpkin</span></div>
-            <ul>
-              <li>Netherite armour, a bow and a pumpkin head</li>
-              <li>Hits even harder, and summons a Cursed Bat every 10 seconds and a Haunting Phantom every minute</li>
-              <li>Gives 15 levels of XP</li>
-              <li><b>Loot:</b> 15 to 30 carved pumpkins, 2 to 4 phantom membranes, 10 to 25 candy, a Witch's Brew potion, and 5 to 10 more candy</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </details>
-
-    <details class="fold">
-      <summary>🪦 Graves (three-wave fight)</summary>
-      <div class="body">
-        <p>Build a grave, light the candle, and the ground opens up. You get an 18 second ritual, then three waves of buffed undead with pumpkin heads (+30% health, +50% damage, +20% speed). A wave bar shows how many mobs are left and the countdown. Cooldown is 15 minutes per player.</p>
-        <h4>How to build one</h4>
-        <ol class="num">
-          <li>Dig down one block and lay <b>3 wood planks</b> in a row. That's the coffin.</li>
-          <li>Cover them with <b>3 dirt or grass blocks</b>.</li>
-          <li>Put a <b>sign</b> on the middle dirt block and write <b>RIP</b> on it.</li>
-          <li>On one side of the dirt, build a <b>cross</b> from wall blocks: 4 stacked, with one more on each side of the 3rd block (7 in total).</li>
-          <li>On the <b>opposite side</b>, place an <b>unlit candle</b> on the ground next to the dirt row, any colour.</li>
-          <li>Right-click the candle with <b>flint and steel</b> (or a fire charge).</li>
-        </ol>
-<pre class="diagram">   W              W = wall block (cobblestone or mossy)
-  WWW             S = sign that says RIP
-   W              C = unlit candle beside the dirt row
-   W   [S]   [C]  D = dirt or grass, 3 in a row
-      [D][D][D]   P = wood planks, 3 in a row, one block down
-      [P][P][P]
-(the cross and the candle go on opposite sides of the dirt row)</pre>
-        <p class="small">If nothing happens: the candle has to be beside the dirt (not on top), the cross arms go on the 3rd block, the sign must say RIP, and your cooldown must be over.</p>
-        <h4>The waves</h4>
-        <div class="tw"><table class="t">
-          <tr><th>Wave</th><th>Who rises</th><th>Time limit</th></tr>
-          <tr><td>1</td><td>3 skeletons, 2 zombies, 2 skeleton riders, 3 zombie riders</td><td>90 s</td></tr>
-          <tr><td>2</td><td>5 skeletons, 7 zombies, 3 skeleton riders, 4 zombie riders</td><td>120 s</td></tr>
-          <tr><td>3</td><td>10 skeletons, 8 zombies, 3 blazes, 6 skeleton riders</td><td>180 s</td></tr>
-        </table></div>
-        <p>If a wave's timer runs out, the leftover mobs vanish and the next wave starts five seconds later. When it's over, a glowing reward chest appears for 15 minutes. Your loot depends on how much of the three waves you cleared, and if it's under 50%, the chest only holds a single pumpkin. XP is split by how many kills each player got.</p>
-        <p><b>Loot:</b> 10 to 32 carved pumpkins, 2 to 5 cakes, 5 to 10 gold ingots, 15 to 25 candy, a phantom membrane, a 50% chance each of a skeleton skull and a zombie head, plus 5 to 10 bonus candy. Grave mobs can also drop pumpkins (10%) and candy (25%).</p>
-      </div>
-    </details>
-
-    <details class="fold">
-      <summary>🎃 Pumpkin power and cake rewards</summary>
-      <div class="body">
-        <ul>
-          <li><b>Pumpkin buffs:</b> wearing a carved pumpkin gives you <b>Speed II</b> and <b>Night Vision</b>, plus a yellow glow. The effects refresh every 15 seconds and disappear when you take the pumpkin off.</li>
-          <li><b>Cake rewards:</b> keep the pumpkin on and you get a cake after 5 minutes, then another after 10 more minutes, then 15, and so on up to a 30 minute cap.</li>
-          <li><b>Login pumpkin:</b> logging in can give you a pumpkin to wear, with a 30 minute cooldown.</li>
-          <li><b>Pumpkin curse:</b> every so often a carved pumpkin lands on your head on its own (your old helmet goes back into your inventory if you have room).</li>
-        </ul>
-      </div>
-    </details>
-
-    <details class="fold">
-      <summary>🍬 Halloween Candy and the Pumpkin Trader</summary>
-      <div class="body">
-        <p>Halloween Candy is a special cookie that works as the event currency. Normal cookies don't count, and you can't eat it.</p>
-        <div class="tw"><table class="t">
-          <tr><th>Where candy comes from</th><th>Amount</th><th>Chance</th></tr>
-          <tr><td>Beating a boss</td><td>5 to 10</td><td>100%</td></tr>
-          <tr><td>Finishing a grave</td><td>5 to 10</td><td>100%</td></tr>
-          <tr><td>Killing a bat witch</td><td>1 to 3</td><td>50%</td></tr>
-          <tr><td>Killing a pumpkin-headed mob</td><td>1 to 2</td><td>30%</td></tr>
-          <tr><td>Killing a grave mob</td><td>1</td><td>25%</td></tr>
-        </table></div>
-        <h4>Make a Pumpkin Trader</h4>
-        <p>Right-click any villager while holding a carved pumpkin. The pumpkin is used up and the villager becomes a Pumpkin Trader with a pumpkin on its head. Open it to trade:</p>
-        <div class="tw"><table class="t">
-          <tr><th>You give</th><th>You get</th><th>Limit</th></tr>
-          <tr><td>1 emerald</td><td>64 carved pumpkins</td><td>No limit</td></tr>
-          <tr><td>64 carved pumpkins</td><td>1 emerald</td><td>No limit</td></tr>
-          <tr><td>10 candy</td><td>1 golden apple</td><td>5 times per trader</td></tr>
-          <tr><td>25 candy</td><td>1 diamond</td><td>3 times per trader</td></tr>
-        </table></div>
-      </div>
-    </details>
-
-    <details class="fold">
-      <summary>🦇 Bat witches, pumpkin mobs and scares</summary>
-      <div class="body">
-        <ul>
-          <li><b>Bat witches:</b> a bat you kill has a 1 in 3 chance of turning into a glowing witch with a pumpkin helmet and 50% more health. It drops 3 to 8 pumpkins, a useful potion and maybe candy.</li>
-          <li><b>Pumpkin mobs:</b> about 1 in 10 naturally spawned monsters wear a carved pumpkin. They drop 1 to 3 pumpkins and sometimes candy.</li>
-        </ul>
-        <h4>Random scares</h4>
-        <p>Every so often one player gets a spooky surprise. Fire and lightning never hurt you, and the scares are only shown to the player they happen to.</p>
-        <div class="tw"><table class="t">
-          <tr><th>Scare</th><th>What happens</th><th>How often</th></tr>
-          <tr><td>Pumpkin curse</td><td>A pumpkin appears on your head</td><td>5 to 20 min</td></tr>
-          <tr><td>Slenderman</td><td>An Enderman flashes in front of you for half a second</td><td>15 to 40 min</td></tr>
-          <tr><td>Fire</td><td>You burn for a moment, with no damage</td><td>30 to 60 min</td></tr>
-          <tr><td>Lightning</td><td>A bolt strikes next to you, with no damage</td><td>20 to 35 min</td></tr>
-          <tr><td>Darkness</td><td>Your screen goes dark for 2 seconds</td><td>10 to 50 min</td></tr>
-        </table></div>
-      </div>
-    </details>
-
-    <details class="fold">
-      <summary>📊 Stats, commands and good to know</summary>
-      <div class="body">
-        <div class="tw"><table class="t">
-          <tr><th>Command</th><th>What it does</th></tr>
-          <tr><td><code>/halloween stats</code></td><td>Shows your own Halloween stats</td></tr>
-          <tr><td><code>/halloween top &lt;stat&gt;</code></td><td>Shows the leaderboard for a stat</td></tr>
-          <tr><td><code>/halloween disable</code></td><td>Opts you out of Halloween</td></tr>
-        </table></div>
-        <p>Stats we track: scares, pumpkins received, Halloween mob kills, bosses defeated, graves completed, cakes and candy earned.</p>
-        <ul>
-          <li>If you opt out, you get no scares, buffs or rewards, and you can't summon bosses or graves.</li>
-          <li>Halloween doesn't work in the Nether or the End, and vanished staff and spectators are skipped.</li>
-          <li>Altars, graves and traders can also be blocked inside protected areas like spawn.</li>
-          <li>Staff can switch the whole event with <code>/halloween on</code> and <code>/halloween off</code>. Turning it off removes every boss and grave mob and turns Pumpkin Traders back into normal villagers.</li>
-        </ul>
-      </div>
-    </details>
-  </div>
-</section>
-
-<section id="features" class="sec">
-  <div class="wrap">
-    <div class="head"><h2>Under the Hood</h2><p>A world built for chill, but with just a little structuring to keep things organized.</p></div>
-    <div class="grid">
-      <article class="block"><div class="ico">🏡</div><h3>One world, no resets</h3><p>We like to keep the same world since launch, your base from 3 months ago is still there, probably overgrown.</p></article>
-      <article class="block"><div class="ico">⛏️</div><h3>Claimed Land</h3><p>Build megabuilds, minibuilds, or just bases you want to keep. Claiming is a feature, learn more on the wiki.</p></article>
-      <article class="block gold"><div class="ico">📧</div><h3>Email Support</h3>
-        <ul><li>email griefed@furballsmp.online for grief reports...</li><li>email support@furballsmp.online for all other requests!</li></ul></article>
-      <article class="block"><div class="ico">🔍</div><h3>Monitored</h3><p>Every block. If something of yours actually gets griefed, admins can find it and roll it back. You can feel safe on this server.</p></article>
-      <article class="block"><div class="ico">🎉</div><h3>Seasonal events</h3><p>Small community builds, boat races, and the occasional boss night. Nothing mandatory. Also, host your own!</p></article>
-      <article class="block"><div class="ico">🛡️</div><h3>GriefPrevention tools</h3><p>No griefing, guys! Google how to use GriefPrevention in a server as a player.</p></article>
+  <section id="features">
+    <h2>Under the hood</h2>
+    <p class="lede">A world built for chill, but with just a little structuring to keep things organized.</p>
+    <div class="grid g3">
+      <div class="tile"><div class="ico">🏡</div><h3>One world, no resets</h3><p>We like to keep the same world since launch, your base from 3 months ago is still there, probably overgrown.</p></div>
+      <div class="tile"><div class="ico">⛏️</div><h3>Claimed Land</h3><p>Build megabuilds, minibuilds, or just bases you want to keep. Claiming is a feature, learn more on the wiki.</p></div>
+      <div class="tile gold"><div class="ico">📧</div><h3>Email Support</h3><ul><li>email griefed@furballsmp.online for grief reports...</li><li>email support@furballsmp.online for all other requests!</li></ul></div>
+      <div class="tile"><div class="ico">🔍</div><h3>Monitored</h3><p>Every block. If something of yours actually gets griefed, admins can find it and roll it back. You can feel safe on this server.</p></div>
+      <div class="tile"><div class="ico">🎉</div><h3>Seasonal events</h3><p>Small community builds, boat races, and the occasional boss night. Nothing mandatory. Also, host your own!</p></div>
+      <div class="tile"><div class="ico">🛡️</div><h3>GriefPrevention tools</h3><p>No griefing, guys! Google how to use GriefPrevention in a server as a player.</p></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="join" class="sec dirt">
-  <div class="wrap">
-    <div class="head"><h2>Getting in</h2><p>We don't believe in applications or requirements. Anyone is free to join.</p></div>
-    <ol class="steps">
-      <li><span>1</span><h3>Copy the IP</h3><p>Hit the copy button and paste it in your game to play.</p></li>
-      <li><span>2</span><h3>Connect</h3><p>Load in and poof, you're in the game.</p></li>
-      <li><span>3</span><h3>Find somewhere to settle</h3><p>No set spawn hub to build near — go find your own patch of world.</p></li>
-    </ol>
-    <p class="cap">Infrastructure caps out at <strong>50 players online at once</strong>. If the server's full when you try to connect, just try again in a bit.</p>
-  </div>
-</section>
-
-<section id="rules" class="sec">
-  <div class="wrap rules">
-    <div class="head"><h2>House rules</h2><p>Short list, kept short on purpose.</p></div>
-    <ul class="rule-list">
+  <section id="rules">
+    <h2>House rules</h2>
+    <p class="lede">Short list, kept short on purpose.</p>
+    <ul class="rules">
       <li><b>No griefing or stealing</b><span>Admins DO check player reports.</span></li>
       <li><b>No flood machines</b><span>Guys, this isn't Donut SMP - no Team Flood, Drain, or Compramos.</span></li>
       <li><b>No lag machines</b><span>Farms are welcome; farms built to break the server aren't.</span></li>
       <li><b>Be decent in chat</b><span>Disagreements happen, just don't take it too far.</span></li>
       <li class="ban"><b>ZERO Tolerance for Racism or Discrimination</b><span>First time? No warning, perma-ban.</span></li>
     </ul>
-  </div>
-</section>
+  </section>
 
+  <section>
+    <h2>Look around</h2>
+    <p class="lede">Everything you need is one click away.</p>
+    <div class="grid g3">
+      <a class="tile" href="players.html"><h3>Players</h3><p>Check player cards and live stats.</p></a>
+      <a class="tile" href="https://wiki.furballsmp.online" rel="noopener"><h3>Wiki</h3><p>Read the guides and server info.</p></a>
+      <a class="tile" href="/tip"><h3>Tip jar</h3><p>Chip in to help cover server costs.</p></a>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Questions</h2>
+    <details><summary>Can Bedrock players join?</summary><p>Yes. Add the server in Bedrock with the address and port 25617 from the join section above.</p></details>
+    <details><summary>Where can I see player stats?</summary><p>Open the Players page. It shows a card for each player with their live stats.</p></details>
+    <details><summary>How can I support the server?</summary><p>Use the tip jar. Every bit helps pay for hosting.</p></details>
+  </section>
 </main>
 
-<footer id="connect">
+<footer>
   <div class="wrap">
-    <div class="foot-top">
-      <div><h2>Ready when you are.</h2><p>Open to anyone — just connect and play.</p></div>
-      <a class="mc-btn" href="#join">How to join</a>
-    </div>
-    <div class="meta">
-      <div><small>Java IP</small><b>play.furballsmp.online</b></div>
-      <div><small>Bedrock IP</small><b>IP: play.furballsmp.online, Port: 25617</b></div>
-      <div><small>Version</small><b>1.22</b></div>
-      <div><small>Max capacity</small><b>50 players</b></div>
-    </div>
-    <p class="spooky" aria-hidden="true">🎃 👻 🦇 🕸️ 🎃</p>
-    <p class="copy">Furball SMP — a small survival world, run for fun.</p>
+    <span>Furball SMP: a small survival world, run for fun. Not affiliated with Mojang or Microsoft.</span>
+    <nav aria-label="Footer"><a href="players.html">Players</a><a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a><a href="community.html">Community</a><a href="/tip">Tip jar</a></nav>
   </div>
 </footer>
 
 <script src="script.js"></script>
 <script src="crisp.js"></script>
 <script src="kofi.js"></script>
-<script src="donate-popup.js"></script>
 </body>
 </html>
