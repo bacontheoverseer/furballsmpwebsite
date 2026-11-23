@@ -7,81 +7,171 @@
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "z7xpu93rh3");
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#14172b">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<title>Players | Furball SMP</title>
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf6e7">
+  <title>Players — Furball SMP</title>
+  <meta name="description" content="Live trading cards and survival stats for every Java and Bedrock player on Furball SMP.">
+  <link rel="icon" type="image/png" href="furballlogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="sky compact">
-  <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i>
-  <div class="wrap strip">
-    <button class="ipbtn" data-copy="play.furballsmp.online" aria-label="Copy the server address">
-      <span class="pawbox" aria-hidden="true"><img src="furballlogo.png" alt=""></span>
-      <span><b>play.furballsmp.online</b><small id="onlineCount">Click to copy the address</small></span>
-    </button>
-    <a class="discord" href="community.html">
-      <span><b>Community</b><small>Join the conversation</small></span>
-      <span class="dbox" aria-hidden="true">💬</span>
-    </a>
-  </div>
-  <div class="wrap logo sm"><h1>Players</h1></div>
-  <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 L0,60 C360,-10 1080,-10 1440,60 L1440,110 Z" fill="#14172b"/></svg>
-</header>
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="furballlogo.png" alt=""></span>
+        <span>Furball<span class="brand-accent">SMP</span></span>
+      </a>
 
-<div class="navwrap">
-  <nav class="main" aria-label="Main">
-    <a href="index.html">Home</a>
-    <a href="players.html" aria-current="page">Players</a>
-    <a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a>
-    <a href="community.html">Community</a>
-    <a href="index.html#rules">Rules</a>
-    <a href="/tip">Tip jar</a>
-    <a class="cta" href="index.html#join">How to join</a>
-  </nav>
-</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#join">How to join</a>
+        <a href="players.html" aria-current="page">Players</a>
+        <a href="index.html#rules">Rules</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a>
+      </nav>
 
-<main class="wrap">
-  <p class="lede">Everyone who's ever joined, with a trading card each. Play more to rank up.</p>
-  <div class="tiles" id="tiles"></div>
-  <div class="controls">
-    <input id="search" type="search" placeholder="Search players..." aria-label="Search players">
-    <select id="sort" aria-label="Sort players">
-      <option value="hours">Most playtime</option>
-      <option value="mined">Most blocks mined</option>
-      <option value="mobKills">Most mob kills</option>
-      <option value="km">Furthest walked</option>
-      <option value="lastSeen">Recently seen</option>
-      <option value="name">Name (A to Z)</option>
-    </select>
-    <label class="chk"><input type="checkbox" id="onlineOnly"> Online now</label>
-  </div>
-  <p class="empty" id="empty" hidden>No players found.</p>
-  <div class="cards" id="cards"></div>
-  <p class="updated" id="updated"></p>
-</main>
+      <div class="nav-actions">
+        <button class="status-pill" type="button" data-copy="play.furballsmp.online" title="Click to copy play.furballsmp.online">
+          <span class="status-dot" data-status-dot aria-hidden="true"></span>
+          <span class="copy-label" data-status-text>Checking...</span>
+        </button>
+        <a class="btn btn-sm hide-mobile" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a>
+        <a class="btn btn-sm hide-mobile" href="tip.html">Tip jar</a>
+        <a class="btn btn-sm btn-primary hide-mobile" href="index.html#join">Join Now</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
 
-<div style="height:60px"></div>
-<footer>
-  <div class="wrap">
-    <span>Furball SMP: a small survival world, run for fun. Not affiliated with Mojang or Microsoft.</span>
-    <nav aria-label="Footer"><a href="players.html">Players</a><a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a><a href="community.html">Community</a><a href="/tip">Tip jar</a></nav>
-  </div>
-</footer>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="index.html">Home</a>
+        <a href="players.html">Players</a>
+        <a href="community.html">Community</a>
+        <a href="index.html#rules">Rules</a>
+        <a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a>
+      </div>
+      <div class="mobile-drawer-actions">
+        <a class="btn btn-sm btn-primary" href="index.html#join">Join Now</a>
+        <a class="btn btn-sm" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a>
+        <a class="btn btn-sm" href="tip.html">Tip jar</a>
+      </div>
+    </div>
+  </header>
 
-<script src="config.js"></script>
-<script src="script.js"></script>
-<script src="players.js"></script>
-<script src="crisp.js"></script>
-<script src="kofi.js"></script>
+  <main>
+
+    <!-- Compact Sky Header + Summary Tiles -->
+    <section class="band band-hero-compact">
+      <div class="wrap">
+        <div class="p-head-row">
+          <div>
+            <span class="kicker">Live Roster</span>
+            <h1>Player Trading Cards</h1>
+            <p>Everyone who's ever joined Furball SMP, with a collectible card each. Play more hours to climb from Common up to Legendary.</p>
+          </div>
+          <button class="btn btn-primary" type="button" data-copy="play.furballsmp.online">
+            <span class="copy-label">Copy IP · play.furballsmp.online</span>
+          </button>
+        </div>
+
+        <div class="tiles" id="tiles"></div>
+      </div>
+    </section>
+
+    <!-- Search, Filter & Cards Grid -->
+    <section class="band band-paper">
+      <div class="wrap">
+        <div class="controls">
+          <input id="search" type="search" placeholder="Search players by username..." aria-label="Search players">
+          <select id="sort" aria-label="Sort players">
+            <option value="hours">Most playtime</option>
+            <option value="mined">Most blocks mined</option>
+            <option value="mobKills">Most mob kills</option>
+            <option value="km">Furthest walked</option>
+            <option value="lastSeen">Recently seen</option>
+            <option value="name">Name (A to Z)</option>
+          </select>
+          <label class="chk"><input type="checkbox" id="onlineOnly"> Online now</label>
+        </div>
+
+        <p class="empty" id="empty" hidden>No players match that filter.</p>
+        <div class="cards" id="cards"></div>
+        <p class="updated" id="updated"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="grass-divider" aria-hidden="true"></div>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <span class="brand-mark"><img src="furballlogo.png" alt=""></span>
+            <span>Furball<span class="brand-accent">SMP</span></span>
+          </a>
+          <p style="max-width: 34ch; font-size: 0.92rem;">A small survival Minecraft world for Java and Bedrock, run for fun.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Server</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="index.html#rules">Rules</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="index.html#join">Java: play.furballsmp.online</a></li>
+            <li><a href="index.html#join">Bedrock Port: 25617</a></li>
+            <li><a href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="mailto:griefed@furballsmp.online">griefed@furballsmp.online</a></li>
+            <li><a href="mailto:support@furballsmp.online">support@furballsmp.online</a></li>
+            <li><a href="tip.html">Tip jar (Ko-fi)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Furball SMP — Not affiliated with Mojang or Microsoft.</span>
+        <span>Rarity tiers: Common · Uncommon (10h) · Rare (50h) · Epic (100h) · Legendary (250h)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+  <script src="players.js"></script>
+  <script src="kofi.js"></script>
   <script>
-  (function(e,a,d,i,c,t=a.createElement(d)){e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},t.src=i,t.async=1,a.body.insertAdjacentElement("beforeend",t)})(window,document,"script","https://bubble.quickchat.ai/chat.js","_quickchat");
-  _quickchat("init", "fylk3oym6m");
-</script>
+    (function(e,a,d,i,c,t=a.createElement(d)){e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},t.src=i,t.async=1,a.body.insertAdjacentElement("beforeend",t)})(window,document,"script","https://bubble.quickchat.ai/chat.js","_quickchat");
+    _quickchat("init", "fylk3oym6m");
+  </script>
 </body>
 </html>

@@ -118,7 +118,7 @@ if (typeof document !== "undefined") {
         <div class="c-top"><span class="c-name">${esc(shown)}</span><i class="c-dot" title="${p.online ? "Online now" : "Offline"}"></i></div>
         <div class="c-art"${p.xuid ? ` data-xuid="${p.xuid}"` : ""}>
           <span class="c-rarity">${r}</span><span class="c-rank">Rank ${p.rank}</span>
-          <img src="${p.xuid ? "furball.png" : javaSkinUrl(shown)}" alt="${esc(shown)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furball.png'">
+          <img src="${p.xuid ? "furballlogo.png" : javaSkinUrl(shown)}" alt="${esc(shown)}'s skin" loading="lazy" onerror="this.onerror=null;this.src='furballlogo.png'">
         </div>
         <ul class="c-stats">
           <li><span>Playtime</span>${fmtH(p.hours)} h</li>
@@ -140,7 +140,7 @@ if (typeof document !== "undefined") {
       [fmt(players.reduce((s, p) => s + p.hours, 0)), "Total hours played"],
       [fmt(players.reduce((s, p) => s + p.mined, 0)), "Blocks mined"]
     ];
-    $("tiles").innerHTML = t.map(([v, l]) => `<div class="tile"><b>${v}</b><small>${l}</small></div>`).join("");
+    $("tiles").innerHTML = t.map(([v, l]) => `<div class="stat-tile"><small>${l}</small><b>${v}</b></div>`).join("");
     $("updated").textContent = live ? "Live from the server. Refreshes every couple of minutes." : "Showing a saved snapshot (the live feed couldn't be reached).";
   }
 

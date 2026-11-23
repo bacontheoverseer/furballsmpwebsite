@@ -1,148 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Start cookieyes banner --> <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/4ee765c4c6164ca77c178e3ea2cd31cd/script.js"></script> <!-- End cookieyes banner -->
+  <!-- Start cookieyes banner -->
+  <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/4ee765c4c6164ca77c178e3ea2cd31cd/script.js"></script>
+  <!-- End cookieyes banner -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "z7xpu93rh3");
-</script>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#14172b">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<title>Furball SMP | Java &amp; Bedrock Minecraft Server</title>
-<meta name="description" content="Furball SMP is a small survival Minecraft community for Java and Bedrock players.">
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf6e7">
+  <title>Furball SMP — Java &amp; Bedrock Survival Minecraft Server</title>
+  <meta name="description" content="Furball SMP is a small survival Minecraft community for Java and Bedrock players. No applications, no resets, GriefPrevention, Auction House, and room for 50 players.">
+  <link rel="icon" type="image/png" href="furballlogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="sky">
-  <i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><i class="cloud c4"></i>
-  <div class="wrap strip">
-    <button class="ipbtn" data-copy="play.furballsmp.online" aria-label="Copy the server address">
-      <span class="pawbox" aria-hidden="true"><img src="furballlogo.png" alt=""></span>
-      <span><b>play.furballsmp.online</b><small id="onlineCount">Click to copy the address</small></span>
-    </button>
-    <a class="discord" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU">
-      <span><b>chatnet</b><small>talk with fellow furballs</small></span>
-      <span class="dbox" aria-hidden="true">💬</span>
-    </a>
-  </div>
-  <img class="mascot" src="furball.png" alt="Furball SMP mascot">
-  <div class="wrap logo">
-    <h1>Furball<span>SMP</span></h1>
-    <p>Survival, but everyone's way more chill.</p>
-  </div>
-  <svg class="wave" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path d="M0,110 L0,60 C360,-10 1080,-10 1440,60 L1440,110 Z" fill="#14172b"/></svg>
-</header>
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark"><img src="furballlogo.png" alt=""></span>
+        <span>Furball<span class="brand-accent">SMP</span></span>
+      </a>
 
-<div class="navwrap">
-  <nav class="main" aria-label="Main">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="players.html">Players</a>
-    <a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a>
-    <a href="community.html">Community</a>
-    <a href="#rules">Rules</a>
-    <a href="/tip">Tip jar</a>
-    <a class="cta" href="#join">How to join</a>
-  </nav>
-</div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#features">Features</a>
+        <a href="#join">How to join</a>
+        <a href="players.html">Players</a>
+        <a href="#rules">Rules</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a>
+      </nav>
 
-<main class="wrap">
-
-  <section aria-label="Server status">
-    <div class="grid g3">
-      <div class="tile" id="statusTile"><div class="k">Server status</div><div class="v"><span class="dot"></span><span id="statusText">Checking...</span></div><div class="sub" id="statusSub">Looking for the server</div></div>
-      <div class="tile"><div class="k">Editions</div><div class="v">Java + Bedrock</div><div class="sub">Everyone plays in the same world</div></div>
-      <a class="tile" href="players.html"><div class="k">Player stats</div><div class="v">See the players</div><div class="sub">Live trading cards for everyone</div></a>
+      <div class="nav-actions">
+        <button class="status-pill" type="button" data-copy="play.furballsmp.online" title="Click to copy play.furballsmp.online">
+          <span class="status-dot" data-status-dot aria-hidden="true"></span>
+          <span class="copy-label" data-status-text>Checking...</span>
+        </button>
+        <a class="btn btn-sm hide-mobile" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a>
+        <a class="btn btn-sm hide-mobile" href="tip.html">Tip jar</a>
+        <a class="btn btn-sm btn-primary hide-mobile" href="#join">Join Now</a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </div>
-  </section>
 
-  <section id="about">
-    <h2>Welcome to Furball SMP</h2>
-    <p class="lede">Furball SMP is a small survival community for the type of people that hoard their sheep, call town meetings, and create megabuilds. There's also Auction House, GriefPrevention, and Anticheat. Bedrock's supported too, more on that in the join section below.</p>
-  </section>
-
-  <section id="join">
-    <h2>How to join</h2>
-    <p class="lede">We don't believe in applications or requirements. Anyone is free to join.</p>
-    <div class="grid g2">
-      <div class="tile"><h3>Java Edition</h3>
-        <div class="row"><span>Address</span><code>play.furballsmp.online</code></div>
-        <button class="btn" data-copy="play.furballsmp.online">Copy address</button></div>
-      <div class="tile"><h3>Bedrock Edition</h3>
-        <div class="row"><span>Address</span><code>play.furballsmp.online</code></div>
-        <div class="row"><span>Port</span><code>25617</code></div>
-        <button class="btn" data-copy="play.furballsmp.online">Copy address</button></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-links">
+        <a href="#features">Features</a>
+        <a href="#join">How to join</a>
+        <a href="players.html">Players</a>
+        <a href="community.html">Community</a>
+        <a href="#rules">Rules</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a>
+      </div>
+      <div class="mobile-drawer-actions">
+        <a class="btn btn-sm btn-primary" href="#join">Join Now</a>
+        <a class="btn btn-sm" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a>
+        <a class="btn btn-sm" href="tip.html">Tip jar</a>
+      </div>
     </div>
-    <div class="tile" style="margin-top:16px"><ol class="steps grid g3">
-      <li><div><h3>Copy the IP</h3><p>Hit the copy button and paste it in your game to play.</p></div></li>
-      <li><div><h3>Connect</h3><p>Load in and poof, you're in the game.</p></div></li>
-      <li><div><h3>Find somewhere to settle</h3><p>No set spawn hub to build near. Go find your own patch of world.</p></div></li>
-    </ol></div>
-    <p class="note">Infrastructure caps out at <strong>50 players online at once</strong>. If the server's full when you try to connect, just try again in a bit.</p>
-  </section>
+  </header>
 
-  <section id="features">
-    <h2>Under the hood</h2>
-    <p class="lede">A world built for chill, but with just a little structuring to keep things organized.</p>
-    <div class="grid g3">
-      <div class="tile"><div class="ico">🏡</div><h3>One world, no resets</h3><p>We like to keep the same world since launch, your base from 3 months ago is still there, probably overgrown.</p></div>
-      <div class="tile"><div class="ico">⛏️</div><h3>Claimed Land</h3><p>Build megabuilds, minibuilds, or just bases you want to keep. Claiming is a feature, learn more on the wiki.</p></div>
-      <div class="tile gold"><div class="ico">📧</div><h3>Email Support</h3><ul><li>email griefed@furballsmp.online for grief reports...</li><li>email support@furballsmp.online for all other requests!</li></ul></div>
-      <div class="tile"><div class="ico">🔍</div><h3>Monitored</h3><p>Every block. If something of yours actually gets griefed, admins can find it and roll it back. You can feel safe on this server.</p></div>
-      <div class="tile"><div class="ico">🎉</div><h3>Seasonal events</h3><p>Small community builds, boat races, and the occasional boss night. Nothing mandatory. Also, host your own!</p></div>
-      <div class="tile"><div class="ico">🛡️</div><h3>GriefPrevention tools</h3><p>No griefing, guys! Google how to use GriefPrevention in a server as a player.</p></div>
+  <main>
+
+    <!-- Band 1: Sky Hero -->
+    <section class="band band-hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1 class="hero-title">
+            Survival.<br>
+            But everyone's<br>
+            <span class="hero-highlight">way more chill.</span>
+          </h1>
+          <p class="hero-sub">
+            A small Minecraft survival world for the people who hoard sheep, call town meetings, and build megabuilds. Java &amp; Bedrock crossplay, Auction House, land claiming, and <span class="inline-pill">no applications</span>.
+          </p>
+
+          <div class="hero-ctas">
+            <button class="btn btn-primary" type="button" data-copy="play.furballsmp.online">
+              <span aria-hidden="true">▶</span>
+              <span class="copy-label">Copy IP · play.furballsmp.online</span>
+            </button>
+            <a class="btn" href="#join">Java &amp; Bedrock setup</a>
+          </div>
+
+          <div class="hero-meta-line">
+            <span>Open to everyone · 50 player cap</span>
+            <a href="players.html">View live player cards →</a>
+          </div>
+
+          <div class="hero-callout">
+            <p>Playing on Bedrock, phone, or console? Same IP, just set port <code>25617</code> and you're in the same world.</p>
+            <a class="btn btn-sm btn-dark" href="#join">Bedrock info</a>
+          </div>
+        </div>
+
+        <!-- Hero Right: Server Status & Mascot Showcase Card -->
+        <aside class="hero-card" aria-label="Live server summary">
+          <span class="ribbon">Java + Bedrock</span>
+          <div class="hero-mascot-stage">
+            <img src="furball.png" alt="Furball SMP world snapshots and logo">
+            <div class="mascot-badge">
+              <img src="furballlogo.png" alt="">
+              <span>NO RESETS</span>
+            </div>
+          </div>
+
+          <div class="ip-box">
+            <code>play.furballsmp.online</code>
+            <button class="btn btn-sm btn-primary" type="button" data-copy="play.furballsmp.online">
+              <span class="copy-label">Copy</span>
+            </button>
+          </div>
+
+          <div class="meter-head">
+            <span>SERVER CAPACITY</span>
+            <span data-meter-count>Checking live status...</span>
+          </div>
+          <div class="meter" data-capacity-meter aria-hidden="true"></div>
+
+          <div class="hero-card-specs">
+            <div class="spec-chip">
+              <small>Bedrock Port</small>
+              <strong>25617</strong>
+            </div>
+            <div class="spec-chip">
+              <small>Version</small>
+              <strong data-version-text>Java &amp; Bedrock</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Band 2: Dark Trust & Story Strip -->
+    <section class="band band-dark" aria-label="What makes Furball SMP different">
+      <div class="wrap">
+        <div class="trust-grid">
+          <div class="trust-item">
+            <h3>One world, no resets</h3>
+            <p>We keep the same map since launch. Your base, farms, and rail lines from three months ago are still standing, probably slightly overgrown.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Java &amp; Bedrock together</h3>
+            <p>PC, Mac, phone, tablet, or console — everyone plays in the exact same survival world with zero hoops to jump through.</p>
+          </div>
+          <div class="trust-item">
+            <h3>Every block monitored</h3>
+            <p>Claim your builds with a Golden Shovel via GriefPrevention, backed by full block logging so admins can trace and roll back grief.</p>
+          </div>
+        </div>
+
+        <hr class="trust-divider">
+
+        <div class="founder-note">
+          <h3>What is Furball SMP?</h3>
+          <p>Furball SMP is a small survival server run for fun, not as a mega-network. There are no whitelist essays, no pay-to-win crates, and no forced spawn town. Just copy the IP, drop into the world, and build with decent people.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Band 3: How to Join (Soft Sky Band) -->
+    <section class="band band-sky" id="join">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="kicker">How to join</span>
+          <h2>Jump in, no application needed</h2>
+          <p>We don't believe in applications or requirements. Anyone is free to connect and start playing right away.</p>
+        </div>
+
+        <div class="join-cards">
+          <!-- Java Card -->
+          <article class="join-card">
+            <div class="join-card-top">
+              <h3>Java Edition</h3>
+              <p>PC, Mac, and Linux players using standard Minecraft Java.</p>
+            </div>
+
+            <div class="kv-list">
+              <div class="kv-row">
+                <span>Server Address</span>
+                <code>play.furballsmp.online</code>
+              </div>
+              <div class="kv-row">
+                <span>Port</span>
+                <code>Default (25565)</code>
+              </div>
+            </div>
+
+            <ul class="check-list">
+              <li>Works with vanilla client — no mods required</li>
+              <li>Full Auction House, land claims, and player stats</li>
+              <li>Java skin shows automatically on your player card</li>
+            </ul>
+
+            <div class="join-card-actions">
+              <button class="btn btn-primary" type="button" data-copy="play.furballsmp.online">
+                <span class="copy-label">Copy Java IP</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Bedrock Card -->
+          <article class="join-card featured">
+            <span class="ribbon ribbon-red">Crossplay</span>
+            <div class="join-card-top">
+              <h3>Bedrock Edition</h3>
+              <p>Windows, iOS, Android, and consoles connecting into the same world.</p>
+            </div>
+
+            <div class="kv-list">
+              <div class="kv-row">
+                <span>Server Address</span>
+                <code>play.furballsmp.online</code>
+              </div>
+              <div class="kv-row">
+                <span>Port</span>
+                <code>25617</code>
+              </div>
+            </div>
+
+            <ul class="check-list">
+              <li>Shared survival world with Java players via Geyser</li>
+              <li>Same land claims, Auction House, and commands</li>
+              <li>Bedrock skins render on the Players page too</li>
+            </ul>
+
+            <div class="join-card-actions">
+              <button class="btn btn-primary" type="button" data-copy="play.furballsmp.online">
+                <span class="copy-label">Copy Address</span>
+              </button>
+              <button class="btn" type="button" data-copy="25617">
+                <span class="copy-label">Copy Port 25617</span>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="steps-card">
+          <ol class="steps-grid">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <h4>Copy the IP</h4>
+                <p>Hit the copy button above and add the server in Minecraft's Multiplayer menu.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <h4>Connect</h4>
+                <p>Load in and poof, you're in the game. No lobby queues or hub mazes.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <h4>Find somewhere to settle</h4>
+                <p>No set spawn hub to build near. Run <code>/rtp</code> or walk out and claim your own patch of world.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <p class="cap-note">
+          Infrastructure caps out at <strong>50 players online at once</strong>. If the server's full when you try to connect, just try again in a bit.
+        </p>
+      </div>
+    </section>
+
+    <!-- Band 4: Under the Hood / Features & Commands (Warm Paper) -->
+    <section class="band band-paper" id="features">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="kicker">Under the hood</span>
+          <h2>Built for chill, structured just enough</h2>
+          <p>Vanilla-feeling survival with the quality-of-life plugins that keep builds safe and trading fun.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="f-card">
+            <div class="f-head bg-green"><span>NO RESETS</span></div>
+            <div class="f-body">
+              <h3>Permanent Survival World</h3>
+              <div class="f-meta">Same map since launch</div>
+              <p>We keep the same world running so long-term megabuilds, towns, and farms actually matter. Come back months later and your base is still there.</p>
+            </div>
+          </article>
+
+          <article class="f-card">
+            <div class="f-head bg-gold"><span>CLAIMS</span></div>
+            <div class="f-body">
+              <h3>Golden Shovel Protection</h3>
+              <div class="f-meta">GriefPrevention · Anticheat</div>
+              <p>Grab a Golden Shovel, click two opposite corners of your plot, and your build is claimed. Need extra claim blocks? Email support.</p>
+            </div>
+          </article>
+
+          <article class="f-card">
+            <div class="f-head bg-sky"><span>ECONOMY</span></div>
+            <div class="f-body">
+              <h3>Player Auction House</h3>
+              <div class="f-meta">/ah · /ah sell · /bal · /pay</div>
+              <p>Buy and sell items directly with other players through the Auction House, or send money straight to a neighbor for a build commission.</p>
+            </div>
+          </article>
+
+          <article class="f-card">
+            <div class="f-head bg-dirt"><span>EXPLORE</span></div>
+            <div class="f-body">
+              <h3>Open World &amp; Warps</h3>
+              <div class="f-meta">/rtp · /tpa · /warp · /back</div>
+              <p>Use random teleport to find untouched terrain, warp around community spots, or send a teleport request to visit a friend's base.</p>
+            </div>
+          </article>
+
+          <article class="f-card">
+            <div class="f-head bg-forest"><span>EVENTS</span></div>
+            <div class="f-body">
+              <h3>Seasonal &amp; Player Events</h3>
+              <div class="f-meta">Optional · Community-led</div>
+              <p>Small community builds, boat races, seasonal themes, and the occasional boss night. Nothing mandatory — and you're welcome to host your own.</p>
+            </div>
+          </article>
+
+          <article class="f-card">
+            <div class="f-head bg-ink"><span>SUPPORT</span></div>
+            <div class="f-body">
+              <h3>Real Admin Email Support</h3>
+              <div class="f-meta">Full block logging &amp; rollbacks</div>
+              <p>Every block is monitored. If something gets griefed, admins can track it and roll it back:</p>
+              <ul>
+                <li>Grief reports: <a class="mail-link" href="mailto:griefed@furballsmp.online">griefed@furballsmp.online</a></li>
+                <li>Everything else: <a class="mail-link" href="mailto:support@furballsmp.online">support@furballsmp.online</a></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Quick Commands Bar -->
+        <div class="cmd-panel">
+          <div class="cmd-top">
+            <div>
+              <h3>Handy commands to know</h3>
+              <p style="color: var(--ink-soft); font-size: 0.92rem;">Full guides and land-claiming walkthroughs live on our wiki.</p>
+            </div>
+            <a class="btn btn-sm" href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Open the Wiki ↗</a>
+          </div>
+
+          <div class="cmd-grid">
+            <div class="cmd-item"><code>/ah</code><span>Open the player Auction House</span></div>
+            <div class="cmd-item"><code>/ah sell &lt;price&gt;</code><span>List the item in your hand</span></div>
+            <div class="cmd-item"><code>/rtp</code><span>Randomly teleport into the world</span></div>
+            <div class="cmd-item"><code>/tpa &lt;player&gt;</code><span>Request to teleport to a friend</span></div>
+            <div class="cmd-item"><code>/warp &lt;name&gt;</code><span>Travel to a server warp</span></div>
+            <div class="cmd-item"><code>/back</code><span>Return to your previous spot</span></div>
+            <div class="cmd-item"><code>/bal</code><span>Check your current balance</span></div>
+            <div class="cmd-item"><code>/pay &lt;user&gt; &lt;amount&gt;</code><span>Pay another player directly</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Band 5: House Rules (Dark Band) -->
+    <section class="band band-dark" id="rules">
+      <div class="wrap">
+        <div class="sec-head">
+          <span class="kicker">House rules</span>
+          <h2>Short list, kept short on purpose</h2>
+          <p>Use common sense, respect other players' builds, and everyone has a good time.</p>
+        </div>
+
+        <div class="rules-grid">
+          <article class="rule-card">
+            <span class="rule-num">01</span>
+            <div>
+              <h3>No griefing or stealing</h3>
+              <p>Admins DO check player reports, and every block is logged.</p>
+            </div>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-num">02</span>
+            <div>
+              <h3>No flood machines</h3>
+              <p>Guys, this isn't Donut SMP — no Team Flood, Drain, or Compramos.</p>
+            </div>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-num">03</span>
+            <div>
+              <h3>No lag machines</h3>
+              <p>Farms are welcome; farms built to break the server aren't.</p>
+            </div>
+          </article>
+
+          <article class="rule-card">
+            <span class="rule-num">04</span>
+            <div>
+              <h3>Be decent in chat</h3>
+              <p>Disagreements happen, just don't take it too far.</p>
+            </div>
+          </article>
+
+          <article class="rule-card rule-ban">
+            <span class="rule-num">BAN</span>
+            <div>
+              <h3>ZERO Tolerance for Racism or Discrimination</h3>
+              <p>First time? No warning, perma-ban.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Band 6: Players Spotlight & FAQ (Warm Paper) -->
+    <section class="band band-paper" id="faq">
+      <div class="wrap">
+        <div class="players-banner">
+          <div>
+            <span class="kicker" style="margin-bottom: 8px;">Live Trading Cards</span>
+            <h3>Every player gets a collectible stat card</h3>
+            <p>Browse everyone who's ever joined Furball SMP — live playtime, blocks mined, mob kills, distance walked, rarity tiers, and 3D Java &amp; Bedrock skins.</p>
+          </div>
+          <a class="btn btn-primary" href="players.html">Browse Player Cards →</a>
+        </div>
+
+        <div class="sec-head">
+          <span class="kicker">FAQ</span>
+          <h2>Common questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Can Bedrock players join?</summary>
+            <div class="faq-answer">
+              Yes. Add the server in Bedrock Edition using address <code>play.furballsmp.online</code> and port <code>25617</code>. You'll spawn into the exact same world as Java players.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I claim land so nobody touches my base?</summary>
+            <div class="faq-answer">
+              Craft a Golden Shovel, right-click one far corner of the area you want to protect, then right-click the opposite corner. If you ever run out of claim blocks, email <a href="mailto:support@furballsmp.online">support@furballsmp.online</a> or check the <a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">wiki</a>.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where can I see player stats and leaderboards?</summary>
+            <div class="faq-answer">
+              Head over to the <a href="players.html">Players page</a>. It generates a live trading card for every player with their playtime, blocks mined, mob kills, and rarity rank.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What if my base gets griefed?</summary>
+            <div class="faq-answer">
+              Email <a href="mailto:griefed@furballsmp.online">griefed@furballsmp.online</a> with your username and roughly where/when it happened. Every block is logged so admins can inspect and roll it back.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>How can I support the server?</summary>
+            <div class="faq-answer">
+              Furball SMP is free to play with no pay-to-win perks. If you'd like to help cover hosting bills, you can drop a dollar in our <a href="tip.html">Ko-fi tip jar</a>.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Band 7: Final Green CTA -->
+    <section class="band band-green">
+      <div class="wrap cta-box">
+        <h2>Ready when you are.</h2>
+        <p>Open to anyone on Java or Bedrock. Copy the IP, drop into the world, and say hi on Chatnet.</p>
+        <div class="cta-actions">
+          <button class="btn btn-dark" type="button" data-copy="play.furballsmp.online">
+            <span class="copy-label">Copy IP · play.furballsmp.online</span>
+          </button>
+          <a class="btn" href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Join Chatnet</a>
+          <a class="btn" href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Read the Wiki ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Minecraft Pixel Grass & Dirt Transition -->
+  <div class="grass-divider" aria-hidden="true"></div>
+
+  <!-- Dark Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="index.html">
+            <span class="brand-mark"><img src="furballlogo.png" alt=""></span>
+            <span>Furball<span class="brand-accent">SMP</span></span>
+          </a>
+          <p style="max-width: 34ch; font-size: 0.92rem;">A small survival Minecraft world for Java and Bedrock, run for fun.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Server</h4>
+          <ul>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="https://wiki.furballsmp.online" target="_blank" rel="noopener">Wiki ↗</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="#rules">Rules</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#join">Java: play.furballsmp.online</a></li>
+            <li><a href="#join">Bedrock Port: 25617</a></li>
+            <li><a href="https://chatnet.furballsmp.online/invite/yp4Awq-RQ_iG6f9rEPA7DqXN2U3V8ySU" target="_blank" rel="noopener">Chatnet</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="mailto:griefed@furballsmp.online">griefed@furballsmp.online</a></li>
+            <li><a href="mailto:support@furballsmp.online">support@furballsmp.online</a></li>
+            <li><a href="tip.html">Tip jar (Ko-fi)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Furball SMP — Not affiliated with Mojang or Microsoft.</span>
+        <span>Max capacity: 50 players online at once.</span>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <section id="rules">
-    <h2>House rules</h2>
-    <p class="lede">Short list, kept short on purpose.</p>
-    <ul class="rules">
-      <li><b>No griefing or stealing</b><span>Admins DO check player reports.</span></li>
-      <li><b>No flood machines</b><span>Guys, this isn't Donut SMP - no Team Flood, Drain, or Compramos.</span></li>
-      <li><b>No lag machines</b><span>Farms are welcome; farms built to break the server aren't.</span></li>
-      <li><b>Be decent in chat</b><span>Disagreements happen, just don't take it too far.</span></li>
-      <li class="ban"><b>ZERO Tolerance for Racism or Discrimination</b><span>First time? No warning, perma-ban.</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Look around</h2>
-    <p class="lede">Everything you need is one click away.</p>
-    <div class="grid g3">
-      <a class="tile" href="players.html"><h3>Players</h3><p>Check player cards and live stats.</p></a>
-      <a class="tile" href="https://wiki.furballsmp.online" rel="noopener"><h3>Wiki</h3><p>Read the guides and server info.</p></a>
-      <a class="tile" href="/tip"><h3>Tip jar</h3><p>Chip in to help cover server costs.</p></a>
-    </div>
-  </section>
-
-  <section id="faq">
-    <h2>Questions</h2>
-    <details><summary>Can Bedrock players join?</summary><p>Yes. Add the server in Bedrock with the address and port 25617 from the join section above.</p></details>
-    <details><summary>Where can I see player stats?</summary><p>Open the Players page. It shows a card for each player with their live stats.</p></details>
-    <details><summary>How can I support the server?</summary><p>Use the tip jar. Every bit helps pay for hosting.</p></details>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <span>Furball SMP: a small survival world, run for fun. Not affiliated with Mojang or Microsoft.</span>
-    <nav aria-label="Footer"><a href="players.html">Players</a><a href="https://wiki.furballsmp.online" rel="noopener">Wiki</a><a href="community.html">Community</a><a href="/tip">Tip jar</a></nav>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-<script src="crisp.js"></script>
-<script src="kofi.js"></script>
-<script>
-  (function(e,a,d,i,c,t=a.createElement(d)){e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},t.src=i,t.async=1,a.body.insertAdjacentElement("beforeend",t)})(window,document,"script","https://bubble.quickchat.ai/chat.js","_quickchat");
-  _quickchat("init", "fylk3oym6m");
-</script>
+  <script src="script.js"></script>
+  <script src="kofi.js"></script>
+  <script>
+    (function(e,a,d,i,c,t=a.createElement(d)){e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},t.src=i,t.async=1,a.body.insertAdjacentElement("beforeend",t)})(window,document,"script","https://bubble.quickchat.ai/chat.js","_quickchat");
+    _quickchat("init", "fylk3oym6m");
+  </script>
 </body>
 </html>

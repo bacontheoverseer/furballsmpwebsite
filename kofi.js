@@ -5,9 +5,9 @@
   s.onload = function () {
     kofiWidgetOverlay.draw("furballsmp", {
       "type": "floating-chat",
-      "floating-chat.donateButton.text": "Donate",
-      "floating-chat.donateButton.background-color": "#5cb85c",
-      "floating-chat.donateButton.text-color": "#fff"
+      "floating-chat.donateButton.text": "Tip Jar",
+      "floating-chat.donateButton.background-color": "#11150f",
+      "floating-chat.donateButton.text-color": "#37e36a"
     });
   };
   document.head.appendChild(s);
